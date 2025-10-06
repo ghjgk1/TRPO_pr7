@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TRPO_pr7"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="900">
+        Title="MainWindow" Height="575" Width="915">
     <Window.Resources>
         <local:User x:Key="CurrentUser"/>
     </Window.Resources>
@@ -13,44 +13,255 @@
         <Binding Source="{StaticResource CurrentUser}"/>
     </Window.DataContext>
     <DockPanel>
-        <WrapPanel DockPanel.Dock="Top" Height="400">
-            <Grid Width="290" Margin="5">
+        <WrapPanel DockPanel.Dock="Top" Height="500">
+            <WrapPanel Orientation="Vertical">
+                <!--Форма регистрации пользователя-->
+                <Border BorderBrush="Black" BorderThickness="1" Margin="7 7 0 0">
 
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="100"/>
-                    <ColumnDefinition Width="190"/>
-                </Grid.ColumnDefinitions>
+                    <Grid Width="293" Height="177" Margin="0 0 0 5">
 
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="185"/>
+                        </Grid.ColumnDefinitions>
 
-                <Label Content="Фамилия"/>
-                <TextBox Grid.Column="1" Margin="0 2"/>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
 
-                <Label Grid.Row="1" Content="Имя"/>
-                <TextBox Grid.Row="1" Grid.Column="1" Margin="0 2"/>
+                        <Label Content="Фамилия"/>
+                        <TextBox Grid.Column="1" Margin="0 2 4 0"/>
 
-                <Label Grid.Row="2" Content="Отчество"/>
-                <TextBox Grid.Row="2" Grid.Column="1" Margin="0 2"/>
+                        <Label Grid.Row="1" Content="Имя"/>
+                        <TextBox Grid.Row="1" Grid.Column="1" Margin="0 2 4 0"/>
 
-                <Label Grid.Row="3" Content="Специализация"/>
-                <TextBox Grid.Row="3" Grid.Column="1" Margin="0 2"/>
+                        <Label Grid.Row="2" Content="Отчество"/>
+                        <TextBox Grid.Row="2" Grid.Column="1" Margin="0 2 4 0"/>
 
-                <Label Grid.Row="4" Content="Пароль"/>
-                <TextBox Grid.Row="4" Grid.Column="1" Margin="0 2"/>
-            </Grid>
-            <WrapPanel Width="290" Margin="5">
-                <TextBox/>
+                        <Label Grid.Row="3" Content="Специализация"/>
+                        <TextBox Grid.Row="3" Grid.Column="1" Margin="0 2 4 0"/>
+
+                        <Label Grid.Row="4" Content="Пароль"/>
+                        <TextBox Grid.Row="4" Grid.Column="1" Margin="0 2 4 0"/>
+
+                        <StackPanel Grid.Row="5" Grid.ColumnSpan="2" Orientation="Horizontal">
+                            <Label Content="Подтверждение пароля"/>
+                            <TextBox Margin="0 2" Width="140"/>
+                        </StackPanel>
+
+                        <Button Grid.Row="6" Grid.ColumnSpan="2" Content="Зарегестрироваться" Padding="0 2" Margin="4 0 4 2" Click="UserRegBtton_Click"/>
+                    </Grid>
+                </Border>
+                
+                <!--Форма авторизации пользователя-->
+                <Border BorderBrush="Black" BorderThickness="1" Margin="7 13 0 0">
+                    <Grid Width="285" Height="78" Margin="0 0 0 5">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="185"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+
+                        <Label Content="Идентификатор"/>
+                        <TextBox Grid.Column="1" Margin="0 2 4 0"/>
+
+                        <Label Grid.Row="1" Content="Пароль"/>
+                        <TextBox Grid.Row="1" Grid.Column="1" Margin="0 2 4 0"/>
+
+                        <Button Grid.Row="2" Grid.ColumnSpan="2" Content="Войти" Padding="0 2" Margin="4 2" Click="UserRegBtton_Click"/>
+                    </Grid>
+                </Border>
+                <!--Информация о текущем пользователе-->
+                <Border BorderBrush="Black" BorderThickness="1" Margin="7 13 0 0">
+                    <StackPanel Margin="7">
+
+                        <TextBlock Text="Фамилия:" Margin="0 0 0 5"/>
+                        <TextBlock Text="" Margin="0 0 0 5"/>
+
+                        <TextBlock Text="Имя:" Margin="0 0 0 5"/>
+                        <TextBlock Text="" Margin="0 0 0 5"/>
+
+                        <TextBlock Text="Отчетво:" Margin="0 0 0 5"/>
+                        <TextBlock Text="" Margin="0 0 0 5"/>
+
+                        <TextBlock Text="Специализация:" Margin="0 0 0 5"/>
+                        <TextBlock Text="" Margin="0 0 0 5" Height="20.5"/>
+                    </StackPanel>
+                </Border>
             </WrapPanel>
-            <WrapPanel Width="290" Margin="5">
-                <TextBox/>
+            <WrapPanel Width="293" Margin="5 7 0 0" Orientation="Vertical">
+                <!--Поиск пациента-->
+                <Border BorderThickness="1" BorderBrush="Black">
+                    <Grid Width="293" Margin="0 0 0 7">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        
+                        <Label Content="Идентификатор"/>
+                        <TextBox Grid.Column="1" Margin="0 2 6 0"/>
+
+                        <Button Grid.Row="1" Grid.ColumnSpan="2" Content="Поиск" Padding="0 2" Margin="4 2 6 0" Click="UserRegBtton_Click"/>
+                    </Grid>
+                </Border>
+
+                <!--Информация о пациенте-->
+                <Border BorderBrush="Black" BorderThickness="1" Margin="0 13 0 0">
+                    <StackPanel Margin="7">
+
+                        <TextBlock Text="Фамилия:" Margin="0 0 0 5"/>
+                        <TextBlock Text="" Margin="0 0 0 5"/>
+
+                        <TextBlock Text="Имя:" Margin="0 0 0 5"/>
+                        <TextBlock Text="" Margin="0 0 0 5"/>
+
+                        <TextBlock Text="Отчетво:" Margin="0 0 0 5"/>
+                        <TextBlock Text="" Margin="0 0 0 5"/>
+
+                        <TextBlock Text="День рождения:" Margin="0 0 0 5"/>
+                        <TextBlock Text="" Margin="0 0 0 5"/>
+
+                        <TextBlock Text="Дата последного осмотра:" Margin="0 0 0 5"/>
+                        <TextBlock Text="" Margin="0 0 0 5"/>
+
+                        <TextBlock Text="Последний доктор:" Margin="0 0 0 5"/>
+                        <TextBlock Text="" Margin="0 0 0 5"/>
+
+                        <TextBlock Text="Диагноз:" Margin="0 0 0 5"/>
+                        <TextBlock Text="" Margin="0 0 0 5"/>
+
+                        <TextBlock Text="Рекомендация:" Margin="0 0 0 5"/>
+                        <TextBlock Text="" Margin="0 0 0 5" Height="76"/>
+                    </StackPanel>
+                </Border>
+            </WrapPanel>
+            <WrapPanel Width="293">
+                <!--Форма добавления пациента-->
+                <Border BorderBrush="Black" BorderThickness="1" Margin="7 7 0 0">
+
+                    <Grid Width="293" Height="228" Margin="0 0 0 5">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="185"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+
+                        <Label Content="Фамилия"/>
+                        <TextBox Grid.Column="1" Margin="0 2 4 0"/>
+
+                        <Label Grid.Row="1" Content="Имя"/>
+                        <TextBox Grid.Row="1" Grid.Column="1" Margin="0 2 4 0"/>
+
+                        <Label Grid.Row="2" Content="Отчество"/>
+                        <TextBox Grid.Row="2" Grid.Column="1" Margin="0 2 4 0"/>
+
+                        <Label Grid.Row="3" Content="Дата рождения"/>
+                        <DatePicker Grid.Row="3" Grid.Column="1" Margin="0 2 4 0" />
+
+                        <StackPanel Grid.Row="4" Grid.ColumnSpan="2" Orientation="Horizontal">
+                            <Label Content="Дата последнего осмотра"/>
+                            <DatePicker  Margin="0 2 4 0"  Width="129.38"/>
+                        </StackPanel>
+
+
+                        <StackPanel Grid.Row="5" Grid.ColumnSpan="2" Orientation="Horizontal">
+                            <Label Content="Последний доктор"/>
+                            <TextBox Width="168" Margin="0 2 0 0"/>
+                        </StackPanel>
+
+                        <Label Grid.Row="6" Content="Диагноз"/>
+                        <TextBox Grid.Row="6" Grid.Column="1" Margin="0 2 4 0" />
+                        
+                        <Label Grid.Row="7" Content="Рекомендация"/>
+                        <TextBox Grid.Row="7" Grid.Column="1" Margin="0 2 4 2" />
+
+                        <Button Grid.Row="8" Grid.ColumnSpan="2" Content="Добавитить" Padding="0 2" Margin="4 0 4 2" Click="UserRegBtton_Click"/>
+                    </Grid>
+                </Border>
+                <!--Форма изменения информации о пациенте-->
+                <Border BorderBrush="Black" BorderThickness="1" Margin="7 13 0 0">
+
+                    <Grid Width="293" Height="228" Margin="0 0 0 5">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="185"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+
+                        <Label Content="Фамилия"/>
+                        <TextBox Grid.Column="1" Margin="0 2 4 0"/>
+
+                        <Label Grid.Row="1" Content="Имя"/>
+                        <TextBox Grid.Row="1" Grid.Column="1" Margin="0 2 4 0"/>
+
+                        <Label Grid.Row="2" Content="Отчество"/>
+                        <TextBox Grid.Row="2" Grid.Column="1" Margin="0 2 4 0"/>
+
+                        <Label Grid.Row="3" Content="Дата рождения"/>
+                        <DatePicker Grid.Row="3" Grid.Column="1" Margin="0 2 4 0" />
+
+                        <StackPanel Grid.Row="4" Grid.ColumnSpan="2" Orientation="Horizontal">
+                            <Label Content="Дата последнего осмотра"/>
+                            <DatePicker  Margin="0 2 4 0"  Width="129.38"/>
+                        </StackPanel>
+
+
+                        <StackPanel Grid.Row="5" Grid.ColumnSpan="2" Orientation="Horizontal">
+                            <Label Content="Последний доктор"/>
+                            <TextBox Width="168" Margin="0 2 0 0"/>
+                        </StackPanel>
+
+                        <Label Grid.Row="6" Content="Диагноз"/>
+                        <TextBox Grid.Row="6" Grid.Column="1" Margin="0 2 4 0" />
+
+                        <Label Grid.Row="7" Content="Рекомендация"/>
+                        <TextBox Grid.Row="7" Grid.Column="1" Margin="0 2 4 2" />
+
+                        <Button Grid.Row="8" Grid.ColumnSpan="2" Content="Добавитить" Padding="0 2" Margin="4 0 4 2" Click="UserRegBtton_Click"/>
+                    </Grid>
+                </Border>
             </WrapPanel>
         </WrapPanel>
-        <Label DockPanel.Dock="Bottom" Height="35"/>
+        <TextBlock DockPanel.Dock="Bottom" Height="35" Background="LightGray"/>
     </DockPanel>
 </Window>

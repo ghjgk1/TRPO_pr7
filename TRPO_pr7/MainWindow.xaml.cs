@@ -24,13 +24,8 @@ namespace TRPO_pr7
             DataContext = CurrentUser;
         }
 
-        private void ResetUser(object sender, RoutedEventArgs e)
+        private void UserRegBtton_Click(object sender, RoutedEventArgs e)
         {
-            var currentUser = (User)Resources["CurrentUser"];
-            currentUser.Id = 0;
-            currentUser.Name = "Имя пользователя";
-            currentUser.Email = "user@example.com";
-            currentUser.Age = 18;
         }
     }
 }
