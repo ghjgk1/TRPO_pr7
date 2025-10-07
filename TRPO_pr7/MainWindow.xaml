@@ -6,12 +6,6 @@
         xmlns:local="clr-namespace:TRPO_pr7"
         mc:Ignorable="d"
         Title="MainWindow" Height="575" Width="915">
-    <Window.Resources>
-        <local:User x:Key="CurrentUser"/>
-    </Window.Resources>
-    <Window.DataContext>
-        <Binding Source="{StaticResource CurrentUser}"/>
-    </Window.DataContext>
     <DockPanel>
         <WrapPanel DockPanel.Dock="Top" Height="500">
             <WrapPanel Orientation="Vertical">
@@ -36,23 +30,23 @@
                         </Grid.RowDefinitions>
 
                         <Label Content="Фамилия"/>
-                        <TextBox Grid.Column="1" Margin="0 2 4 0"/>
+                        <TextBox Grid.Column="1" Margin="0 2 4 0" Text="{Binding Path=LastName, Mode=OneWayToSource}"/>
 
                         <Label Grid.Row="1" Content="Имя"/>
-                        <TextBox Grid.Row="1" Grid.Column="1" Margin="0 2 4 0"/>
+                        <TextBox Grid.Row="1" Grid.Column="1" Margin="0 2 4 0" Text="{Binding Path=Name, Mode=OneWayToSource}"/>
 
                         <Label Grid.Row="2" Content="Отчество"/>
-                        <TextBox Grid.Row="2" Grid.Column="1" Margin="0 2 4 0"/>
+                        <TextBox Grid.Row="2" Grid.Column="1" Margin="0 2 4 0" Text="{Binding Path=MiddleName, Mode=OneWayToSource}"/>
 
                         <Label Grid.Row="3" Content="Специализация"/>
-                        <TextBox Grid.Row="3" Grid.Column="1" Margin="0 2 4 0"/>
+                            <TextBox Grid.Row="3" Grid.Column="1" Margin="0 2 4 0" Text="{Binding Path=Specialization, Mode=OneWayToSource}"/>
 
                         <Label Grid.Row="4" Content="Пароль"/>
-                        <TextBox Grid.Row="4" Grid.Column="1" Margin="0 2 4 0"/>
+                        <TextBox Grid.Row="4" Grid.Column="1" Margin="0 2 4 0" Text="{Binding Path=Password, Mode=OneWayToSource}"/>
 
                         <StackPanel Grid.Row="5" Grid.ColumnSpan="2" Orientation="Horizontal">
                             <Label Content="Подтверждение пароля"/>
-                            <TextBox Margin="0 2" Width="140"/>
+                            <TextBox Margin="0 2" Width="140" Text="{Binding Path=Password, Mode=OneWayToSource}"/>
                         </StackPanel>
 
                         <Button Grid.Row="6" Grid.ColumnSpan="2" Content="Зарегестрироваться" Padding="0 2" Margin="4 0 4 2" Click="UserRegBtton_Click"/>
@@ -169,9 +163,6 @@
                             <RowDefinition/>
                             <RowDefinition/>
                             <RowDefinition/>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                            <RowDefinition/>
                         </Grid.RowDefinitions>
 
                         <Label Content="Фамилия"/>
@@ -188,22 +179,10 @@
 
                         <StackPanel Grid.Row="4" Grid.ColumnSpan="2" Orientation="Horizontal">
                             <Label Content="Дата последнего осмотра"/>
-                            <DatePicker  Margin="0 2 4 0"  Width="129.38"/>
+                            <DatePicker  Margin="0 2 4 2"  Width="129.38"/>
                         </StackPanel>
 
-
-                        <StackPanel Grid.Row="5" Grid.ColumnSpan="2" Orientation="Horizontal">
-                            <Label Content="Последний доктор"/>
-                            <TextBox Width="168" Margin="0 2 0 0"/>
-                        </StackPanel>
-
-                        <Label Grid.Row="6" Content="Диагноз"/>
-                        <TextBox Grid.Row="6" Grid.Column="1" Margin="0 2 4 0" />
-                        
-                        <Label Grid.Row="7" Content="Рекомендация"/>
-                        <TextBox Grid.Row="7" Grid.Column="1" Margin="0 2 4 2" />
-
-                        <Button Grid.Row="8" Grid.ColumnSpan="2" Content="Добавитить" Padding="0 2" Margin="4 0 4 2" Click="UserRegBtton_Click"/>
+                        <Button Grid.Row="5" Grid.ColumnSpan="2" Content="Добавитить" Padding="0 2" Margin="4 0 4 2" Click="UserRegBtton_Click"/>
                     </Grid>
                 </Border>
                 <!--Форма изменения информации о пациенте-->
@@ -223,9 +202,6 @@
                             <RowDefinition/>
                             <RowDefinition/>
                             <RowDefinition/>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                            <RowDefinition/>
                         </Grid.RowDefinitions>
 
                         <Label Content="Фамилия"/>
@@ -242,22 +218,10 @@
 
                         <StackPanel Grid.Row="4" Grid.ColumnSpan="2" Orientation="Horizontal">
                             <Label Content="Дата последнего осмотра"/>
-                            <DatePicker  Margin="0 2 4 0"  Width="129.38"/>
+                            <DatePicker  Margin="0 2 4 2"  Width="129.38"/>
                         </StackPanel>
 
-
-                        <StackPanel Grid.Row="5" Grid.ColumnSpan="2" Orientation="Horizontal">
-                            <Label Content="Последний доктор"/>
-                            <TextBox Width="168" Margin="0 2 0 0"/>
-                        </StackPanel>
-
-                        <Label Grid.Row="6" Content="Диагноз"/>
-                        <TextBox Grid.Row="6" Grid.Column="1" Margin="0 2 4 0" />
-
-                        <Label Grid.Row="7" Content="Рекомендация"/>
-                        <TextBox Grid.Row="7" Grid.Column="1" Margin="0 2 4 2" />
-
-                        <Button Grid.Row="8" Grid.ColumnSpan="2" Content="Добавитить" Padding="0 2" Margin="4 0 4 2" Click="UserRegBtton_Click"/>
+                        <Button Grid.Row="5" Grid.ColumnSpan="2" Content="Изменить" Padding="0 2" Margin="4 0 4 2" Click="UserRegBtton_Click"/>
                     </Grid>
                 </Border>
             </WrapPanel>
