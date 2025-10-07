@@ -1,8 +1,13 @@
-﻿using System.Text.Json.Serialization;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Text.Json.Serialization;
+using System.Threading.Tasks;
 
 namespace TRPO_pr7
 {
-    class Doctor : BaseViewModel
+    class Patient : BaseViewModel
     {
         private string _id;
         [JsonIgnore]
@@ -20,7 +25,7 @@ namespace TRPO_pr7
         }
 
         private string _name;
-        public string Name 
+        public string Name
         {
             get => _name;
             set
@@ -59,44 +64,71 @@ namespace TRPO_pr7
                 }
             }
         }
-        private string _specialization;
-        public string Specialization
+        private string _birthday;
+        public string Birthday
         {
-            get => _specialization;
+            get => _birthday;
             set
             {
-                if (value != _specialization)
+                if (value != _birthday)
                 {
-                    _specialization = value;
+                    _birthday = value;
                     OnPropertyChanged();
                 }
             }
         }
 
-        private string _password;
-        public string Password
+        private string _lastAppointment;
+        public string LastAppointment
         {
-            get => _password;
+            get => _lastAppointment;
             set
             {
-                if (value != _password)
+                if (value != _lastAppointment)
                 {
-                    _password = value;
+                    _lastAppointment = value;
                     OnPropertyChanged();
                 }
             }
         }
 
-        private string _confirmation;
-        [JsonIgnore]
-        public string Сonfirmation
+        private string _lastDoctor;
+        public string LastDoctor
         {
-            get => _confirmation;
+            get => _lastDoctor;
             set
             {
-                if (value != _confirmation)
+                if (value != _lastDoctor)
                 {
-                    _confirmation = value;
+                    _lastDoctor = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        private string _diagnosis;
+        public string Diagnosis
+        {
+            get => _diagnosis;
+            set
+            {
+                if (value != _diagnosis)
+                {
+                    _diagnosis = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        private string _recomendations;
+        public string Recomendations
+        {
+            get => _recomendations;
+            set
+            {
+                if (value != _recomendations)
+                {
+                    _recomendations = value;
                     OnPropertyChanged();
                 }
             }
