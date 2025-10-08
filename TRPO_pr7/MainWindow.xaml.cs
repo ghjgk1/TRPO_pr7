@@ -159,7 +159,7 @@ namespace TRPO_pr7
             if (FoundPatient.Diagnosis != "" && FoundPatient.Recomendations != "")
             {
                 int countFile = Directory.GetFiles("..\\net8.0-windows\\Patient").Length;
-                string fileName = $"..\\net8.0-windows\\Patient\\{FoundPatient.ID}.json";
+                string fileName = $"..\\net8.0-windows\\Patient\\P_{FoundPatient.ID}.json";
                 var options = new JsonSerializerOptions { WriteIndented = true };
                 FoundPatient.LastDoctor = $"{CurrentDoctor.LastName} {CurrentDoctor.Name} {CurrentDoctor.MiddleName}";
                 FoundPatient.LastAppointment = DateTime.Today.ToString("d");
