@@ -24,7 +24,7 @@ namespace TRPO_pr7
         {
             int doctorCount = Directory.GetFiles("..\\net8.0-windows\\Doctor").Length;
             int patientCount = Directory.GetFiles("..\\net8.0-windows\\Patient").Length;
-            FileCounter.TotalFiles = $"Всего файлов: {doctorCount + patientCount}";
+            FileCounter.TotalFiles = $"Всего файлов: {doctorCount + patientCount}     Докторов: {doctorCount}     Пациентов: {patientCount}";
         }
         private void CopyPatientProperties(Patient source, Patient destination)
         {
