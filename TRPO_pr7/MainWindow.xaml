@@ -49,7 +49,7 @@
                             <TextBox Margin="0 2" Width="140" Text="{Binding Path=Сonfirmation, Mode=OneWayToSource}"/>
                         </StackPanel>
 
-                        <Button Grid.Row="6" Grid.ColumnSpan="2" Content="Зарегестрироваться" Padding="0 2" Margin="4 0 4 2" Click="UserRegButton_Click"/>
+                        <Button Grid.Row="6" Grid.ColumnSpan="2" Content="Зарегистрироваться" Padding="0 2" Margin="4 0 4 2" Click="UserRegButton_Click"/>
                     </Grid>
                 </Border>
 
@@ -142,7 +142,7 @@
                         <TextBlock Text="Рекомендация:" Margin="0 0 0 5"/>
                         <TextBox Text="{Binding Path=Recomendations, Mode=TwoWay}" Height="38" Width="277"/>
 
-                        <Button Grid.Row="5" Grid.ColumnSpan="2" Content="Изменить" Padding="0 2" Margin="0 3 0 0" Height="36.5" Click="InspectionButton_Click"/>
+                        <Button Grid.Row="5" Grid.ColumnSpan="2" Content="Сохранить информацию" Padding="0 2" Margin="0 3 0 0" Height="36.5" Click="InspectionButton_Click"/>
 
                     </StackPanel>
                 </Border>
@@ -183,7 +183,7 @@
                             <DatePicker Text="{Binding Path=LastAppointment, Mode=OneWayToSource}" Margin="0 2 4 2"  Width="129.38"/>
                         </StackPanel>
 
-                        <Button Grid.Row="5" Grid.ColumnSpan="2" Content="Добавитить" Padding="0 2" Margin="4 0 4 2" Click="AddPatientButton_Click" />
+                        <Button Grid.Row="5" Grid.ColumnSpan="2" Content="Добавить" Padding="0 2" Margin="4 0 4 2" Click="AddPatientButton_Click" />
                     </Grid>
                 </Border>
                 <!--Форма изменения информации о пациенте-->

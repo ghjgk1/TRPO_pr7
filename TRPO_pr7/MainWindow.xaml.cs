@@ -69,7 +69,7 @@ namespace TRPO_pr7
 
         private void UserEnterButton_Click(object sender, RoutedEventArgs e)
         {
-            string fileName = $"..\\net8.0-windows\\Doctor\\{InputDoctor.ID}.json";
+            string fileName = $"..\\net8.0-windows\\Doctor\\D_{InputDoctor.ID}.json";
             if (InputDoctor.ID == "" || InputDoctor.Password == "")
             {
                 MessageBox.Show("Все поля обязательны для заполнения", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -98,7 +98,7 @@ namespace TRPO_pr7
                 MessageBox.Show("Необходимо зайти врачу", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            string fileName = $"..\\net8.0-windows\\Patient\\{InputPatient.ID}.json";
+            string fileName = $"..\\net8.0-windows\\Patient\\P_{InputPatient.ID}.json";
             if (InputPatient.ID == "")
             {
                 MessageBox.Show("Необходимо заполнить идентификатор пациента", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -162,10 +162,10 @@ namespace TRPO_pr7
                 string fileName = $"..\\net8.0-windows\\Patient\\{FoundPatient.ID}.json";
                 var options = new JsonSerializerOptions { WriteIndented = true };
                 FoundPatient.LastDoctor = $"{CurrentDoctor.LastName} {CurrentDoctor.Name} {CurrentDoctor.MiddleName}";
-                FoundPatient.LastAppointment = DateTime.Now.ToString("dd.mm.yyyy");
+                FoundPatient.LastAppointment = DateTime.Today.ToString("d");
                 string jsonString = JsonSerializer.Serialize(FoundPatient, options);
                 File.WriteAllText(fileName, jsonString);
-                MessageBox.Show($"Информация об осмотре изменена успешно! Информация в {FoundPatient.ID}",
+                MessageBox.Show($"Информация об осмотре изменена успешно! Информация в P_{FoundPatient.ID}",
                     "Осмотр", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             else
@@ -188,7 +188,7 @@ namespace TRPO_pr7
             if (EditPatient.Name != "" && EditPatient.LastName != "" && EditPatient.MiddleName != ""
                 && EditPatient.Birthday != "" && EditPatient.LastAppointment != "")
             {
-                string fileName = $"..\\net8.0-windows\\Patient\\{EditPatient.ID}.json";
+                string fileName = $"..\\net8.0-windows\\Patient\\P_{EditPatient.ID}.json";
                 var options = new JsonSerializerOptions { WriteIndented = true };
                 FoundPatient.LastDoctor = EditPatient.LastDoctor = $"{CurrentDoctor.LastName} {CurrentDoctor.Name} {CurrentDoctor.MiddleName}";
                 CopyPatientProperties(EditPatient, FoundPatient);
@@ -211,7 +211,7 @@ namespace TRPO_pr7
                 MessageBox.Show("Необходимо выбрать пациента", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            string fileName = $"..\\net8.0-windows\\Patient\\{EditPatient.ID}.json";
+            string fileName = $"..\\net8.0-windows\\Patient\\P_{EditPatient.ID}.json";
             var jsonString = File.ReadAllText(fileName);
             EditPatient = JsonSerializer.Deserialize<Patient>(jsonString);
             FoundPatient.ID = id;
